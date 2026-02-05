@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "engines": {
-    "node": "18.x",
-    "npm": "9.x"
+     "node": ">=16.0.0",
+     "npm": ">=8.0.0"
   },
   "dependencies": {
     "react": "^19.2.4",
