@@ -70,8 +70,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="relative w-screen min-h-screen overflow-x-hidden bg-slate-950 flex flex-col">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden bg-[#020617] z-0">
+    <div className="relative w-full min-h-screen bg-slate-950 flex flex-col font-sans overflow-x-hidden">
+      <div className="absolute inset-0 pointer-events-none bg-[#020617] z-0">
         {particles.map((p, i) => (
           <motion.div
             key={i}
@@ -112,12 +112,12 @@ const App: React.FC = () => {
         )}
       </AnimatePresence>
 
-      <div className="relative z-10 w-full h-full flex flex-col overflow-hidden">
+      <div className="relative z-10 w-full h-full flex flex-col">
         {gameState !== GameState.START && (
           <HUD currentLevel={level} currentXP={xp} health={health} onHome={() => handleNavigate(GameState.START)} />
         )}
 
-        <main className="flex-1 w-full overflow-y-auto">
+        <main className="flex-1 w-full overflow-y-auto pb-24">
           <div className="w-full min-h-full max-w-7xl mx-auto flex flex-col items-center px-4">
             <AnimatePresence mode="wait">
               {gameState === GameState.START && <StartScreen key="start" onStart={handleNavigate} />}
@@ -134,7 +134,7 @@ const App: React.FC = () => {
           <motion.div
             initial={{ y: 100 }}
             animate={{ y: 0 }}
-            className="w-full min-h-[4rem] md:min-h-[5rem] glass-panel border-t pb-6 md:pb-0 flex justify-around items-center"
+            className="fixed bottom-0 left-0 w-full h-20 glass-panel border-t z-50 flex justify-around items-center"
           >
             {[
               { state: GameState.PROFILE, label: 'Profile', icon: '👤' },
