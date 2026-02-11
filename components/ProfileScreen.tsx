@@ -13,7 +13,7 @@ const ProfileScreen: React.FC = () => {
   ];
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
@@ -24,13 +24,15 @@ const ProfileScreen: React.FC = () => {
           <div className="absolute top-0 right-0 p-8">
             <Binary className="w-12 h-12 text-cyan-400 opacity-10 animate-pulse" />
           </div>
-          
+
           <div className="flex items-center gap-8 mb-10">
             <div className="w-24 h-24 md:w-36 md:h-36 rounded-3xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-5xl md:text-7xl shadow-[0_0_30px_rgba(6,182,212,0.3)] border border-white/20 shrink-0 transform rotate-3">
               👨‍💻
             </div>
             <div className="min-w-0">
-              <h2 className="text-2xl md:text-5xl font-gaming text-white truncate uppercase tracking-tighter">GAUTAM_SONI</h2>
+              <h2 className="text-2xl md:text-5xl font-gaming text-white uppercase tracking-tighter break-words">
+                GAUTAM_SONI
+              </h2>
               <div className="flex items-center gap-3 mt-3">
                 <div className="w-2 h-2 bg-emerald-500 rounded-full animate-ping" />
                 <p className="text-cyan-400 font-gaming text-[10px] md:text-sm tracking-[0.4em] uppercase">SYSTEM_OPERATOR | LVL_03</p>
@@ -38,7 +40,7 @@ const ProfileScreen: React.FC = () => {
             </div>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
@@ -52,7 +54,7 @@ const ProfileScreen: React.FC = () => {
               I’m Gautam Soni, a high-frequency Creative Video Editor and UI/UX Architect dedicated to synthesizing complex data into immersive digital experiences. With a technical core in B.Tech Electronics, I bridge the gap between abstract engineering and human-centric design, building interfaces that don't just work—they resonate.
             </p>
             <div className="absolute -bottom-2 -right-2 p-2 bg-slate-900 border border-slate-800 rounded-lg">
-               <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
+              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
             </div>
           </motion.div>
 
@@ -64,7 +66,7 @@ const ProfileScreen: React.FC = () => {
                   <span className="text-cyan-400">{stat.value}%</span>
                 </div>
                 <div className="h-2 md:h-3.5 bg-slate-950 rounded-full border border-slate-800/80 overflow-hidden p-[2px] shadow-inner">
-                  <motion.div 
+                  <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${stat.value}%` }}
                     transition={{ duration: 1.5, ease: "easeOut", delay: 0.1 * idx }}
@@ -92,11 +94,11 @@ const ProfileScreen: React.FC = () => {
 
       <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] border border-slate-700/50 h-auto shadow-2xl relative overflow-hidden">
         <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-yellow-500/5 rounded-full blur-[100px]" />
-        
+
         <h3 className="text-xl md:text-3xl font-gaming text-white mb-8 md:mb-12 flex items-center gap-4 border-b border-slate-800/80 pb-6 uppercase tracking-widest">
           <Award className="w-8 h-8 text-yellow-500 animate-bounce" /> MEDAL_VAULT
         </h3>
-        
+
         <div className="space-y-6">
           {[
             { title: 'VISUAL_WIZARD', desc: 'Synthesized 100+ high-fidelity design modules.' },
@@ -105,7 +107,7 @@ const ProfileScreen: React.FC = () => {
             { title: 'AI_SYNTHESIST', desc: 'Leading interface experiments in generative AI integration.' },
             { title: 'SYSTEM_ARCHITECT', desc: 'Engineered comprehensive design systems from zero-state.' },
           ].map((item, i) => (
-            <motion.div 
+            <motion.div
               key={item.title}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
