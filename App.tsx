@@ -29,7 +29,7 @@ const App: React.FC = () => {
       x: Math.random() * 100,
       y: Math.random() * 100,
       size: Math.random() * 2 + 1,
-      depth: Math.random() * 0.12 + 0.02 
+      depth: Math.random() * 0.12 + 0.02
     }));
     setParticles(p);
   }, []);
@@ -40,7 +40,7 @@ const App: React.FC = () => {
       const nx = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
       const ny = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
       setParallaxOffset({ x: nx, y: ny });
-      
+
       const target = e.target as HTMLElement;
       const clickable = target.closest('button, a, .clickable');
       if (clickable && !isHovering) {
@@ -70,20 +70,20 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-slate-950 flex flex-col font-sans selection:bg-cyan-500/30">
+    <div className="relative w-screen min-h-screen overflow-hidden bg-slate-950 flex flex-col font-sans selection:bg-cyan-500/30 pb-28 md:pb-0">
       <div className="absolute inset-0 pointer-events-none overflow-hidden bg-[#020617] z-0">
         {particles.map((p, i) => (
           <motion.div
             key={i}
-            animate={{ 
+            animate={{
               x: parallaxOffset.x * p.depth * 300,
               y: parallaxOffset.y * p.depth * 300,
             }}
             transition={{ type: 'spring', damping: 60, stiffness: 30 }}
             className="absolute rounded-full bg-cyan-400/20"
-            style={{ 
-              left: `${p.x}%`, 
-              top: `${p.y}%`, 
+            style={{
+              left: `${p.x}%`,
+              top: `${p.y}%`,
               width: p.size * (p.depth * 15),
               height: p.size * (p.depth * 15),
               opacity: p.depth * 4,
@@ -97,7 +97,7 @@ const App: React.FC = () => {
 
       <AnimatePresence>
         {achievement && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -50, scale: 0.9 }}
@@ -131,10 +131,10 @@ const App: React.FC = () => {
         </main>
 
         {gameState !== GameState.START && (
-          <motion.div 
+          <motion.div
             initial={{ y: 100 }}
             animate={{ y: 0 }}
-            className="w-full h-16 md:h-20 glass-panel border-t border-slate-800/50 flex items-center justify-center gap-1 sm:gap-6 md:gap-12 px-2 shrink-0 pb-safe"
+            className="w-full min-h-[4rem] md:min-h-[5rem] glass-panel border-t pb-6 md:pb-0 flex justify-around items-center"
           >
             {[
               { state: GameState.PROFILE, label: 'Profile', icon: '👤' },
@@ -146,9 +146,8 @@ const App: React.FC = () => {
               <button
                 key={item.state}
                 onClick={() => handleNavigate(item.state)}
-                className={`flex flex-col items-center justify-center gap-1 transition-all px-3 md:px-8 h-12 md:h-14 rounded-xl relative group ${
-                  gameState === item.state ? 'text-cyan-400' : 'text-slate-500 hover:text-slate-300'
-                }`}
+                className={`flex flex-col items-center justify-center gap-1 transition-all px-3 md:px-8 h-12 md:h-14 rounded-xl relative group ${gameState === item.state ? 'text-cyan-400' : 'text-slate-500 hover:text-slate-300'
+                  }`}
               >
                 {gameState === item.state && (
                   <motion.div layoutId="nav-active" className="absolute inset-0 bg-cyan-500/10 border border-cyan-500/30 rounded-xl" />
